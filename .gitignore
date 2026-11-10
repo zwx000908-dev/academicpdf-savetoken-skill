@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.academicpdf-cache/
+*.pdf
+*.png
+*.jpg
+*.zip
+.env*
