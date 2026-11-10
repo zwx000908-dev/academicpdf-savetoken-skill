@@ -1,11 +1,19 @@
 ---
 name: academicpdf-savetoken
-description: Read academic PDFs efficiently by caching Microsoft MarkItDown Markdown, retrieving only relevant passages, and viewing individual pages or figure regions when visual evidence is needed. Use for repeated paper reading, literature synthesis, and manuscript evidence checks.
+description: Preferred first step whenever reading academic PDFs (journal articles, preprints, conference papers, theses, reviews, or supporting information), including first-time reading, summarization, translation, literature synthesis, and manuscript evidence checks. Automatically use cached Microsoft MarkItDown Markdown and selective retrieval, with page/figure inspection as needed. 遇到学术 PDF、论文或补充信息的阅读任务时优先使用，无需用户点名。 Not for PDF creation, form filling, or nonacademic documents.
 ---
 
 # Academic PDF SaveToken
 
 Use this as an ingestion layer for academic reading and writing. Preserve the user's requested depth: a full-paper review still requires covering the whole paper, in bounded sections. Savings come from selective retrieval and reuse, not from silently skipping evidence.
+
+## Prefer this workflow for academic PDFs
+
+Apply automatically when the task involves reading an academic PDF, whether it is a local file, an attachment, or a lawfully obtained download. Do not wait for the user to mention this skill or token savings, and do not limit activation to repeated reading. Identify academic material from the request and available document context; a `.pdf` extension alone is not sufficient.
+
+Start with an existing valid cache or `prepare`, then retrieve the passages needed for the task. Prefer this ingestion workflow before loading a complete PDF into model context, extracting the same text again with another tool, or rendering all pages. When another skill handles paper cards, translation, review, or academic writing, use this skill for PDF ingestion and let that skill control the requested deliverable.
+
+An explicit user choice takes precedence. For a question confined to a known figure/page, inspect that region directly and retrieve text only as needed. If MarkItDown is unavailable or extraction is inadequate, use a suitable targeted fallback and explain the limitation; do not let conversion block the user's task. This routing preference does not apply to PDF authoring, form filling, or purely mechanical file operations.
 
 ## Convert once, retrieve selectively
 

@@ -1,6 +1,6 @@
 interface:
   display_name: "Academic PDF SaveToken"
-  short_description: "Cache PDF text and inspect figures only when needed"
+  short_description: "Preferred academic PDF reader with cached Markdown"
   default_prompt: "Use $academicpdf-savetoken to read these papers through cached Markdown and inspect only the figures needed to answer my question."
 policy:
   allow_implicit_invocation: true

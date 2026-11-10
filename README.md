@@ -22,6 +22,8 @@ A reusable agent skill for academic PDF reading, powered by [Microsoft MarkItDow
 
 ## 安装
 
+安装后，学术 PDF 阅读任务默认优先采用此 skill，无需每次点名。触发范围包括首次阅读、总结、翻译、文献综述、论文写作取证，以及论文补充信息；可作为其他学术写作 skill 的 PDF 输入层。已启用 `allow_implicit_invocation: true`，并在技能描述和正文中明确优先路由。实际选择仍由宿主 Agent 决定，这不是覆盖用户指令的强制优先级。已知图页的纯识图问题可直接看图，提取失败时可按需回退。
+
 需要 Python 3.10+（CI 配置测试 3.11 / 3.13）。克隆仓库后，把其中的 `academicpdf-savetoken/` 子目录复制到 Agent 的 skills 目录。Codex 示例：
 
 ```powershell
@@ -86,3 +88,7 @@ python -m pytest -q
 ## 上游与许可
 
 本项目为独立 skill，非微软官方产品。转换接口、PDF 可选依赖和功能边界依据 [MarkItDown 官方文档](https://github.com/microsoft/markitdown#readme)。PDF 分页使用 [pypdf](https://pypdf.readthedocs.io/)，渲染使用 [pypdfium2](https://pypdfium2.readthedocs.io/)。本仓库代码采用 MIT 许可证；依赖分别遵守其自身许可证。
+
+## 致谢
+
+感谢玻尔平台提供的 Token-Plan 支持。
